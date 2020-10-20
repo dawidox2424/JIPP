@@ -24,8 +24,8 @@ int main()
     int a=0;
     int b=0;
 
-    int *ptr_a =&a; //wskaznik na adres a
-    int *ptr_b =&b; //wskaznik na adres b
+    int *ptr_a =&a; 
+    int *ptr_b =&b; 
 
     cout << "Podaj a:";
     cin >> a;
