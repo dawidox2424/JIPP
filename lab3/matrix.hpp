@@ -19,7 +19,7 @@ class matrix
     double get(int x,int y);
 
     matrix add(matrix m2);
-    matrix substract(matrix m2);
+    matrix subtract(matrix m2);
     matrix multiply(matrix m2);
 
     int cols();

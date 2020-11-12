@@ -1,0 +1,5 @@
+Wymiary macierzy:3 oraz 3
+
+99 132 0 
+100 0 0 
+0 0 0 
