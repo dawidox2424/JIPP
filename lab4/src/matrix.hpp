@@ -3,6 +3,9 @@
 #include <windows.h>
 using namespace std;
 
+#ifndef MATRIX
+#define MATRIX
+
 class matrix
 {
     public:
@@ -34,3 +37,5 @@ class matrix
 
 
 };
+
+#endif

@@ -59,7 +59,6 @@ void test()
 
     cout << "reading matrix fifth from the file!" << endl;
     fifth.input("fifth.txt");
-    cout << "printing fifth matrix (after fifth.input):" << endl;
     fifth.print();
 }
 

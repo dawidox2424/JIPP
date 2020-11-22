@@ -1,7 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
-#include "matrix.cpp"
+#include "matrix.hpp"
 #include <fstream>
 using namespace std;
 
