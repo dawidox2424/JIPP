@@ -9,11 +9,17 @@ using namespace std;
 
 matrix::matrix(int x,int y)
 {
+    try 
+    {
     if(x<=0 || y<=0)
     {
-        cout << "Nie jestes w stanie stworzyc macierzy o jednym z rozmiarów jako ujemnym lub zerowym" << endl;
-        exit(2);
+        throw 5;
     }
+    }
+         catch(int e)
+        {
+            cout << "Nie jestes w stanie stworzyc macierzy o jednym z rozmiarów jako ujemnym lub zerowym" << endl;
+        }
     this->x = x;
     this->y = y;
 
@@ -25,20 +31,29 @@ matrix::mac[t] = new double[y];
     for (int n=0; n<x; n++)
         for (int k=0; k<y; k++)
         mac[n][k] = 0;
+
+
 }
 
 matrix::matrix(int x)
 {
-    if (x<=0)
+    try
     {
-        cout << "Nie jestes w stanie stworzyc macierzy o ujemnym lub zerowym rozmiarze" << endl;
-        exit(2);
-    }
+    if (x<=0)
+        {
+            throw 5;
+        }
+        
+    } 
+        catch(int e)
+{
+    cout << "Nie jestes w stanie stworzyc macierzy o ujemnym lub zerowym rozmiarze" << endl;
+}
     matrix::x = x;
     matrix::y = x;
     matrix::mac = new double*[x];
 
-    for (int t=0; t<x; t++)
+for (int t=0; t<x; t++)
 {
 matrix::mac[t] = new double[x];
 }
@@ -49,23 +64,41 @@ matrix::mac[t] = new double[x];
 
 }
 
+
+
 void matrix::set(int x,int y, double value)
 {
-    if (x < 0 || y < 0 || x > this->x || y > this->y)
+    try
     {
-        cout << "Nie jestes w zakresie rozmiaru macierzy" << endl;
-        exit(2);
-    }
+    if (x < 0 || y < 0 || x > this->x || y > this->y)
+        {
+            throw 5;
+        }
+        
+    } 
+        catch(int e)
+{
+    cout << "Jestes poza zakresem macierzy lub podales ujemne wartosci" << endl;
+}
+    
     mac[x][y] = value;
 }
 
 double matrix::get(int x,int y)
 {
-    if (x < 0 || y < 0 || x > this->x || y > this->y)
+    try
     {
-        cout << "Nie jestes w zakresie rozmiaru macierzy" << endl;
-        exit(2);
-    }
+    if (x < 0 || y < 0 || x > this->x || y > this->y)
+        {
+            throw 5;
+        }
+        
+    } 
+    catch(int e)
+{
+    cout << "Jestes poza zakresem macierzy" << endl;
+}
+    
     return mac[x][y];
 }
 
@@ -95,11 +128,19 @@ void matrix::print()
 
 matrix matrix::add(matrix m2)
 {
-    if(this->x != m2.x || this->y != m2.y)
+    try
     {
-        cout << "Nie mozna dodac macierzy o roznych rozmiarach!!!" << endl;
-        exit(2);
-    }
+    if (this->x != m2.x || this->y != m2.y)
+        {
+            throw 5;
+        }
+        
+    } 
+    catch(int e)
+{
+    cout << "Nie mozna dodac macierzy o roznych rozmiarach!" << endl;
+}
+
     matrix m3(this->x,this->y);
 
     for (int i=0; i<x; i++)
@@ -111,11 +152,19 @@ matrix matrix::add(matrix m2)
 
 matrix matrix::subtract(matrix m2)
 {
-    if(this->x != m2.x || this->y != m2.y)
+    try
     {
-        cout << "Nie mozna odjac macierzy o roznych rozmiarach!!!" << endl;
-        exit(2);
-    }
+    if (this->x != m2.x || this->y != m2.y)
+        {
+            throw 5;
+        }
+        
+    } 
+    catch(int e)
+{
+    cout << "Nie mozna dodac macierzy o roznych rozmiarach!" << endl;
+}
+
     matrix m3(this->x,this->y);
 
     for (int i=0; i<x; i++)
@@ -127,11 +176,18 @@ matrix matrix::subtract(matrix m2)
 
 matrix matrix::multiply(matrix m2)
 {
-    if ( this->x != m2.x)
+    try
     {
-        cout << "Blad w roznicy wymiarow macierzy" << endl;
-        exit(2);
-    }
+    if (this->x != m2.x)
+        {
+            throw 5;
+        }
+        
+    } 
+    catch(int e)
+{
+    cout << "Blad w roznicy wymiarow macierzy" << endl;
+}
 
     double suma;
     matrix m3(this->x,m2.y);
@@ -157,12 +213,18 @@ void matrix::store(string filename,string path)
     //fstream plik;
     ofstream file(path);
  
+    try
+    {
     if(file.good() == false) 
     {
-        cout << "can't open the file !" << endl;
-        exit(2);
+         throw 5;
     }
-    else   
+    }
+    catch(int e)
+    {
+    cout << "Can't open the file" << endl;
+    }
+ 
     {
         file << this->x << " " << this->y << endl;
         file << endl;
@@ -201,11 +263,18 @@ void matrix::input(string path)
 
         input.close();
     }
-    else 
+
+    try{
+    if (input.good() == false)
     {
-        cout << "can't open the file !" << endl;
-        exit(2);
+         throw 5;
     }
+    }
+    catch(int e)
+    {
+    cout << "Can't open the file (input)" << endl;
+    }
+
 
 }
 
