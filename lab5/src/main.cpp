@@ -3,66 +3,90 @@
 #include <windows.h>
 #include "matrix.hpp"
 #include <fstream>
+#include <exception>
+#include <excpt.h>
 using namespace std;
 
 void test()
 {
-    matrix first(-1,5);
-    int cols = first.cols();
-    int rows = first.rows();
+   matrix *first;
+    try {
+        first = new matrix(3,-5);
+        }
+    catch (invalid_argument &e){
+        cout << "error message: " << e.what() << endl;
+    }
 
-    cout << cols << endl;
-    cout << rows << endl;
+        int cols = first->cols();
+        int rows = first->rows();
+        double temp = 3;
+        cout << cols << endl;
+        cout << rows << endl;
 
-    double temp = 3;
-
-    for (int i = 0; i < rows; i++)
+        for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
         {
-            first.set(i, j, temp);
+            first->set(i, j, temp);
             temp += 1.2;
         }
     }
 
     cout << "first matrix:" << endl;
-    first.print();
+    first->print();
 
-    matrix second(5);
-    cols = second.cols();
-    rows = second.rows();
+
+    
+    matrix *second;
+    try {
+        second = new matrix(-10);
+        }
+        catch (invalid_argument &e){
+        cout << "error message: " << e.what() << endl;
+    }
+
+    cols = second->cols();
+    rows = second->rows();
 
     temp = 0;
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
         {
-            second.set(i, j, temp);
+            second->set(i, j, temp);
             temp += 0.7;
         }
     }
 
     cout << "second matrix:" << endl;
-    second.print();
+    second->print();
 
-    matrix third = first.multiply(second);
+
+    matrix *third;
+
+    matrix third = first->multiply(*second);
     cout << "matrix third = first * second" << endl;
-    third.print();
+    third->print();
 
-    matrix fourth =third.add(first);
+    matrix *fourth;
+
+    matrix fourth = third->add(*first);
     cout << "fourth = first + third:" << endl;
-    fourth.print();
+    fourth->print();
 
-    matrix fifth = third.subtract(first);
+    matrix *fifth;
+
+    matrix fifth = third->subtract(*first);
     cout << "fifth = third - first" << endl;
-    fifth.print();
+    fifth->print();
 
     cout << "creating the store for fifth matrix..." << endl;
-    fifth.store("fifth.txt","fifth.txt");
+    fifth->store("fifth.txt","fifth.txt");
 
     cout << "reading matrix fifth from the file!" << endl;
-    fifth.input("fifth.txt");
-    fifth.print();
+    fifth->input("fifth.txt");
+    fifth->print();
+    
 }
 
 

@@ -8,18 +8,16 @@ using namespace std;
 
 
 matrix::matrix(int x,int y)
-{
-    try 
+{ 
+    if(x<=0)
     {
-    if(x<=0 || y<=0)
+        throw invalid_argument("nie mozna utworzyc macierzy o wymiarze X zerowym lub ujemnym");
+    }
+    else if(y<=0)
     {
-        throw 5;
+        throw invalid_argument("nie mozna utworzyc macierzy o wymiarze Y o zerowym lub ujemnym");
     }
-    }
-         catch(int e)
-        {
-            cout << "Nie jestes w stanie stworzyc macierzy o jednym z rozmiarow jako ujemnym lub zerowym" << endl;
-        }
+         
     this->x = x;
     this->y = y;
 
@@ -37,18 +35,10 @@ matrix::mac[t] = new double[y];
 
 matrix::matrix(int x)
 {
-    try
+    if(x<=0)
     {
-    if (x<=0)
-        {
-            throw 5;
-        }
-        
-    } 
-        catch(int e)
-{
-    cout << "Nie jestes w stanie stworzyc macierzy o ujemnym lub zerowym rozmiarze" << endl;
-}
+        throw invalid_argument("nie mozna utworzyc macierzy kwadratowej o wymiarze zerowym lub ujemnym");
+    }
     matrix::x = x;
     matrix::y = x;
     matrix::mac = new double*[x];
@@ -68,36 +58,23 @@ matrix::mac[t] = new double[x];
 
 void matrix::set(int x,int y, double value)
 {
-    try
-    {
+
     if (x < 0 || y < 0 || x > this->x || y > this->y)
         {
-            throw 5;
+           throw invalid_argument("Jestes poza wymiarem macierzy lub podajesz ujemne wspolrzedne komorki");
         }
-        
-    } 
-        catch(int e)
-{
-    cout << "Jestes poza zakresem macierzy lub podales ujemne wartosci" << endl;
-}
     
     mac[x][y] = value;
 }
 
 double matrix::get(int x,int y)
 {
-    try
-    {
+
     if (x < 0 || y < 0 || x > this->x || y > this->y)
         {
-            throw 5;
+            throw invalid_argument("Jestes poza wymiarem macierzy lub podajesz ujemne wspolrzedne komorki");
         }
-        
-    } 
-    catch(int e)
-{
-    cout << "Jestes poza zakresem macierzy" << endl;
-}
+
     
     return mac[x][y];
 }
@@ -128,18 +105,12 @@ void matrix::print()
 
 matrix matrix::add(matrix m2)
 {
-    try
-    {
     if (this->x != m2.x || this->y != m2.y)
         {
-            throw 5;
+            throw invalid_argument("Nie mozna dodac macierzy o roznych rozmiarach!");
         }
-        
-    } 
-    catch(int e)
-{
-    cout << "Nie mozna dodac macierzy o roznych rozmiarach!" << endl;
-}
+
+
 
     matrix m3(this->x,this->y);
 
@@ -152,18 +123,12 @@ matrix matrix::add(matrix m2)
 
 matrix matrix::subtract(matrix m2)
 {
-    try
-    {
+
     if (this->x != m2.x || this->y != m2.y)
         {
-            throw 5;
+            throw invalid_argument("Nie mozna odjac macierzy o roznych rozmiarach!");
         }
-        
-    } 
-    catch(int e)
-{
-    cout << "Nie mozna dodac macierzy o roznych rozmiarach!" << endl;
-}
+
 
     matrix m3(this->x,this->y);
 
@@ -176,18 +141,12 @@ matrix matrix::subtract(matrix m2)
 
 matrix matrix::multiply(matrix m2)
 {
-    try
-    {
+
     if (this->x != m2.x)
         {
-            throw 5;
+            throw invalid_argument("Podane macierze nie spelniaja warunkow do mnozenia!");
         }
         
-    } 
-    catch(int e)
-{
-    cout << "Blad w roznicy wymiarow macierzy" << endl;
-}
 
     double suma;
     matrix m3(this->x,m2.y);
@@ -212,17 +171,10 @@ void matrix::store(string filename,string path)
 {   
     //fstream plik;
     ofstream file(path);
- 
-    try
-    {
+
     if(file.good() == false) 
     {
-         throw 5;
-    }
-    }
-    catch(int e)
-    {
-    cout << "Can't open the file" << endl;
+         throw invalid_argument("Blad w otwarciu pliku");
     }
  
     {
@@ -264,17 +216,10 @@ void matrix::input(string path)
         input.close();
     }
 
-    try{
     if (input.good() == false)
     {
-         throw 5;
+         throw invalid_argument("Nie mozna otworzyc pliku do inputa");
     }
-    }
-    catch(int e)
-    {
-    cout << "Can't open the file (input)" << endl;
-    }
-
 
 }
 
