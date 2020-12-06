@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/JIPP PROJEKTY/lab4/src/main.cpp
+iostream
+-
+conio.h
+-
+windows.h
+-
+matrix.hpp
+D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+fstream
+-
+
+D:/JIPP PROJEKTY/lab4/src/matrix.cpp
+iostream
+-
+conio.h
+-
+windows.h
+-
+matrix.hpp
+D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+fstream
+-
+
+D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+iostream
+-
+conio.h
+-
+windows.h
+-
+
