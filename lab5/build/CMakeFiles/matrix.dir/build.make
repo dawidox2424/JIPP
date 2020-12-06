@@ -61,10 +61,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\JIPP PROJEKTY\lab4"
+CMAKE_SOURCE_DIR = "D:\JIPP PROJEKTY\lab5"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\JIPP PROJEKTY\lab4\build"
+CMAKE_BINARY_DIR = "D:\JIPP PROJEKTY\lab5\build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/matrix.dir/depend.make
@@ -78,30 +78,30 @@ include CMakeFiles/matrix.dir/flags.make
 CMakeFiles/matrix.dir/src/main.cpp.obj: CMakeFiles/matrix.dir/flags.make
 CMakeFiles/matrix.dir/src/main.cpp.obj: CMakeFiles/matrix.dir/includes_CXX.rsp
 CMakeFiles/matrix.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\JIPP PROJEKTY\lab4\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/matrix.dir/src/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\matrix.dir\src\main.cpp.obj -c "D:\JIPP PROJEKTY\lab4\src\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\JIPP PROJEKTY\lab5\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/matrix.dir/src/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\matrix.dir\src\main.cpp.obj -c "D:\JIPP PROJEKTY\lab5\src\main.cpp"
 
 CMakeFiles/matrix.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix.dir/src/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\JIPP PROJEKTY\lab4\src\main.cpp" > CMakeFiles\matrix.dir\src\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\JIPP PROJEKTY\lab5\src\main.cpp" > CMakeFiles\matrix.dir\src\main.cpp.i
 
 CMakeFiles/matrix.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix.dir/src/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\JIPP PROJEKTY\lab4\src\main.cpp" -o CMakeFiles\matrix.dir\src\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\JIPP PROJEKTY\lab5\src\main.cpp" -o CMakeFiles\matrix.dir\src\main.cpp.s
 
 CMakeFiles/matrix.dir/src/matrix.cpp.obj: CMakeFiles/matrix.dir/flags.make
 CMakeFiles/matrix.dir/src/matrix.cpp.obj: CMakeFiles/matrix.dir/includes_CXX.rsp
 CMakeFiles/matrix.dir/src/matrix.cpp.obj: ../src/matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\JIPP PROJEKTY\lab4\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/matrix.dir/src/matrix.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\matrix.dir\src\matrix.cpp.obj -c "D:\JIPP PROJEKTY\lab4\src\matrix.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\JIPP PROJEKTY\lab5\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/matrix.dir/src/matrix.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\matrix.dir\src\matrix.cpp.obj -c "D:\JIPP PROJEKTY\lab5\src\matrix.cpp"
 
 CMakeFiles/matrix.dir/src/matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/matrix.dir/src/matrix.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\JIPP PROJEKTY\lab4\src\matrix.cpp" > CMakeFiles\matrix.dir\src\matrix.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\JIPP PROJEKTY\lab5\src\matrix.cpp" > CMakeFiles\matrix.dir\src\matrix.cpp.i
 
 CMakeFiles/matrix.dir/src/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/matrix.dir/src/matrix.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\JIPP PROJEKTY\lab4\src\matrix.cpp" -o CMakeFiles\matrix.dir\src\matrix.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\JIPP PROJEKTY\lab5\src\matrix.cpp" -o CMakeFiles\matrix.dir\src\matrix.cpp.s
 
 # Object files for target matrix
 matrix_OBJECTS = \
@@ -117,7 +117,7 @@ matrix.exe: CMakeFiles/matrix.dir/build.make
 matrix.exe: CMakeFiles/matrix.dir/linklibs.rsp
 matrix.exe: CMakeFiles/matrix.dir/objects1.rsp
 matrix.exe: CMakeFiles/matrix.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\JIPP PROJEKTY\lab4\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable matrix.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\JIPP PROJEKTY\lab5\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable matrix.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\matrix.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -130,6 +130,6 @@ CMakeFiles/matrix.dir/clean:
 .PHONY : CMakeFiles/matrix.dir/clean
 
 CMakeFiles/matrix.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\JIPP PROJEKTY\lab4" "D:\JIPP PROJEKTY\lab4" "D:\JIPP PROJEKTY\lab4\build" "D:\JIPP PROJEKTY\lab4\build" "D:\JIPP PROJEKTY\lab4\build\CMakeFiles\matrix.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\JIPP PROJEKTY\lab5" "D:\JIPP PROJEKTY\lab5" "D:\JIPP PROJEKTY\lab5\build" "D:\JIPP PROJEKTY\lab5\build" "D:\JIPP PROJEKTY\lab5\build\CMakeFiles\matrix.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/matrix.dir/depend
 

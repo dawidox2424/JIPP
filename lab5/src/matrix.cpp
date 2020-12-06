@@ -18,7 +18,7 @@ matrix::matrix(int x,int y)
     }
          catch(int e)
         {
-            cout << "Nie jestes w stanie stworzyc macierzy o jednym z rozmiarów jako ujemnym lub zerowym" << endl;
+            cout << "Nie jestes w stanie stworzyc macierzy o jednym z rozmiarow jako ujemnym lub zerowym" << endl;
         }
     this->x = x;
     this->y = y;

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/JIPP PROJEKTY/lab4/src/main.cpp
+D:/JIPP PROJEKTY/lab5/src/main.cpp
 iostream
 -
 conio.h
@@ -14,11 +14,11 @@ conio.h
 windows.h
 -
 matrix.hpp
-D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+D:/JIPP PROJEKTY/lab5/src/matrix.hpp
 fstream
 -
 
-D:/JIPP PROJEKTY/lab4/src/matrix.cpp
+D:/JIPP PROJEKTY/lab5/src/matrix.cpp
 iostream
 -
 conio.h
@@ -26,11 +26,11 @@ conio.h
 windows.h
 -
 matrix.hpp
-D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+D:/JIPP PROJEKTY/lab5/src/matrix.hpp
 fstream
 -
 
-D:/JIPP PROJEKTY/lab4/src/matrix.hpp
+D:/JIPP PROJEKTY/lab5/src/matrix.hpp
 iostream
 -
 conio.h

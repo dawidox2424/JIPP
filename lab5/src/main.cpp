@@ -7,9 +7,12 @@ using namespace std;
 
 void test()
 {
-    matrix first(5,5);
+    matrix first(-1,5);
     int cols = first.cols();
     int rows = first.rows();
+
+    cout << cols << endl;
+    cout << rows << endl;
 
     double temp = 3;
 
