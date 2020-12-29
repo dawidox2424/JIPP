@@ -1,99 +1,65 @@
+#include <HRMS.hpp>
+#include <employee.hpp>
 #include <iostream>
-#include <conio.h>
-#include <windows.h>
-#include "matrix.hpp"
-#include <fstream>
-#include <exception>
-#include <excpt.h>
+
+
+
 using namespace std;
-
-void test()
-{
-   matrix *first;
-    try {
-        first = new matrix(3,-5);
-        }
-    catch (invalid_argument &e){
-        cout << "error message: " << e.what() << endl;
-    }
-
-        int cols = first->cols();
-        int rows = first->rows();
-        double temp = 3;
-        cout << cols << endl;
-        cout << rows << endl;
-
-        for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            first->set(i, j, temp);
-            temp += 1.2;
-        }
-    }
-
-    cout << "first matrix:" << endl;
-    first->print();
-
-
-    
-    matrix *second;
-    try {
-        second = new matrix(-10);
-        }
-        catch (invalid_argument &e){
-        cout << "error message: " << e.what() << endl;
-    }
-
-    cols = second->cols();
-    rows = second->rows();
-
-    temp = 0;
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            second->set(i, j, temp);
-            temp += 0.7;
-        }
-    }
-
-    cout << "second matrix:" << endl;
-    second->print();
-
-
-    matrix *third;
-
-    matrix third = first->multiply(*second);
-    cout << "matrix third = first * second" << endl;
-    third->print();
-
-    matrix *fourth;
-
-    matrix fourth = third->add(*first);
-    cout << "fourth = first + third:" << endl;
-    fourth->print();
-
-    matrix *fifth;
-
-    matrix fifth = third->subtract(*first);
-    cout << "fifth = third - first" << endl;
-    fifth->print();
-
-    cout << "creating the store for fifth matrix..." << endl;
-    fifth->store("fifth.txt","fifth.txt");
-
-    cout << "reading matrix fifth from the file!" << endl;
-    fifth->input("fifth.txt");
-    fifth->print();
-    
-}
 
 
 int main()
 {
-    test();
 
-    return 0;
+    HRMS system;
+
+    Employee first("M_PL1", "Adam", "Kowalski", "ID1", "tester");
+    Employee second("id_3", "Jan", "Nowak", "ID1", "majster");
+    Employee third("00213108795", "Marek", "Nowakowski", "ID2", "hipster");
+    Employee fourth("M_LpEL", "Zbigniew", "Niedzielski", "ID2", "kucharz");
+    Employee fifth("412", "Jarek", "Staszic", "ID3", "mistrz");
+    Employee sixth("512", "Michal", "Budnicz", "ID4", "kierownik");
+    Employee seventh("290", "Radoslaw", "Batowski", "ID4", "menager");
+    Employee eighth("0013", "Tadeusz", "Brzeczyszczykiewicz", "ID5", "zarzadca");
+    Employee nineth("ajdi", "Olek", "Amator", "ID5", "pracownik_1");
+    Employee tenth("ID", "Bartosz", "Weglarzyk", "ID6", "pracownik_1");
+
+    system.add(first, "ID1", 2100);
+    system.add(second, "ID1", 1900);
+    system.add(third, "ID2", 2300);
+    system.add(fourth, "ID2", 3300);
+    system.add(fifth, "ID3", 1500);
+    system.add(sixth, "ID4", 2076);
+    system.add(seventh, "ID4", 2077);
+    system.add(eighth, "ID5", 1997);
+    system.add(nineth, "ID5", 2000);
+    system.add(tenth, "ID6", 2002);
+
+    system.printSalaries();
+
+    try
+    {
+    system.changeSalary("512", 2138);
+    }
+    catch (invalid_argument &e)
+    {
+        cerr << "Error: " << e.what() << endl;
+    }
+
+    cout << endl;
+    cout << endl;
+
+    system.printSalaries();
+
+    cout << endl;
+    cout << endl;
+
+    system.printSalariesSorted();
+
+    cout << endl;
+    cout << endl;
+
+
+    system.printDepartment("ID12");
+
+
 }
-
