@@ -103,7 +103,7 @@ void matrix::print()
     }
 }
 
-matrix matrix::add(matrix m2)
+matrix matrix::operator+(matrix m2)
 {
     if (this->x != m2.x || this->y != m2.y)
         {
@@ -121,7 +121,7 @@ matrix matrix::add(matrix m2)
             return m3;
 }
 
-matrix matrix::subtract(matrix m2)
+matrix matrix::operator-(matrix m2)
 {
 
     if (this->x != m2.x || this->y != m2.y)
@@ -139,7 +139,7 @@ matrix matrix::subtract(matrix m2)
             return m3;
 }
 
-matrix matrix::multiply(matrix m2)
+matrix matrix::operator*(matrix m2)
 {
 
     if (this->x != m2.x)
@@ -223,3 +223,42 @@ void matrix::input(string path)
 
 }
 
+ostream& operator<<(ostream &out, matrix m2)
+{
+    out << m2.cols() << " " << m2.rows() << endl;
+    for (int i = 0; i < m2.cols(); i++) {
+        for (int j = 0; j < m2.rows(); j++)
+        {
+            out << m2.get(i, j) << ' ';
+        }
+        out << endl;
+    }
+    return out;
+}
+
+bool matrix::operator==(matrix m2) {
+    if (x != m2.x || y != m2.y) {
+        cout << "111" << endl;
+        return false;
+    }
+
+    for (int i = 0; i < x; i++)
+        for (int j = 0; j < y; j++)
+            if (mac[i][j] - m2.mac[i][j] > 0.0000000001)
+                return false;
+
+    return true;
+}
+
+double *matrix::operator[](int i) 
+{
+    if (i >= this->x) 
+    {
+    throw invalid_argument("Jestes poza zakresem macierzy");
+    } else if (i < 0) 
+    {
+        throw invalid_argument("Jestes poza zakresem macierzy (wartosc ujemna!!)");
+    }
+
+    return mac[i];
+}
