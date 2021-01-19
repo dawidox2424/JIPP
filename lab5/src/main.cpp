@@ -9,28 +9,30 @@ using namespace std;
 
 void test()
 {
-   
     try {
-        matrix first(3,-5);
+        matrix first_test(3,-5);
         }
-    catch (invalid_argument &e){
+    catch (invalid_argument &e)
+        {
         cout << "error message: " << e.what() << endl;
-    }
+        }
+
         matrix first(3,5);
         int cols = first.cols();
         int rows = first.rows();
         double temp = 3;
-        cout << first.cols() << endl;
-        cout << first.rows() << endl;
+        cout << cols << endl;
+        cout << rows << endl;
 
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < cols; i++)
         {
-        for (int j = 0; j < cols; j++)
-        {
+            for (int j = 0; j < rows; j++)
+            {
             first.set(i, j, temp);
-            temp += 1.2;
+            temp += 2.1;
+            }
         }
-    }
+    
 
     cout << "first matrix:" << endl;
     first.print();
@@ -50,9 +52,9 @@ void test()
     rows = second.rows();
 
     temp = 0;
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < cols; i++)
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < rows; j++)
         {
             second.set(i, j, temp);
             temp += 0.7;
@@ -67,25 +69,31 @@ void test()
     cout << "matrix third = first * second" << endl;
     third.print();
 
+    
     matrix fourth = third + first;
 
 
     cout << "fourth = first + third:" << endl;
     fourth.print();
 
-    matrix *fifth;
+    int l = first>2;
+    cout << "Czy wszystkie elementy macierzy first sa wieksze od 2. ?" <<l << endl;
 
-    matrix fifth = third - first;
-    cout << "fifth = third - first" << endl;
-    fifth->print();
+    int p = second<2;
+    cout << "Czy wszystkie elementy macierzy second sa mniejsze od 2. ?" <<p << endl;
 
-    cout << "creating the store for fifth matrix..." << endl;
-    fifth->store("fifth.txt","fifth.txt");
+    double* test = first[2];
+    cout << "first[2]: " << *test << endl;
 
-    cout << "reading matrix fifth from the file!" << endl;
-    fifth->input("fifth.txt");
-    fifth->print();
+    if(first==second)
+    {
+        cout << "macierz first i second sa identyczne" << endl;
+    }else
+    {
+       cout << "macierz first i second nie sa identyczne" << endl;
+    }
     
+
 }
 
 

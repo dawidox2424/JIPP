@@ -30,6 +30,9 @@ class matrix
     matrix operator- (matrix m2);
     matrix operator* (matrix m2);
 
+    bool operator<(double value);
+    bool operator>(double value);
+
     friend ostream& operator<< (ostream &out, matrix m2);
     bool operator== (matrix m2);
     double* operator[](int i);

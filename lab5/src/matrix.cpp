@@ -110,8 +110,6 @@ matrix matrix::operator+(matrix m2)
             throw invalid_argument("Nie mozna dodac macierzy o roznych rozmiarach!");
         }
 
-
-
     matrix m3(this->x,this->y);
 
     for (int i=0; i<x; i++)
@@ -141,17 +139,17 @@ matrix matrix::operator-(matrix m2)
 
 matrix matrix::operator*(matrix m2)
 {
-
+    /*
     if (this->x != m2.x)
         {
             throw invalid_argument("Podane macierze nie spelniaja warunkow do mnozenia!");
         }
-        
+    */
 
     double suma;
     matrix m3(this->x,m2.y);
 
-    for (int i=0; i<this -> x; i++)
+    for (int i=0; i<this->x; i++)
     {
         for (int j=0; j<m2.y; j++)
         {
@@ -237,14 +235,14 @@ ostream& operator<<(ostream &out, matrix m2)
 }
 
 bool matrix::operator==(matrix m2) {
-    if (x != m2.x || y != m2.y) {
-        cout << "111" << endl;
+    if (this->x != m2.x || this->y != m2.y) {
+        cout << "Zle rozmiary macierzy" << endl;
         return false;
     }
 
     for (int i = 0; i < x; i++)
         for (int j = 0; j < y; j++)
-            if (mac[i][j] - m2.mac[i][j] > 0.0000000001)
+            if (mac[i][j] - m2.mac[i][j] != 0.0)
                 return false;
 
     return true;
@@ -261,4 +259,36 @@ double *matrix::operator[](int i)
     }
 
     return mac[i];
+}
+
+bool matrix::operator<(double value)
+{
+    for (int i=0; i<x; i++)
+    {
+        for (int j=0; j<y; j++)
+        {
+            if(mac[i][j] > value)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool matrix::operator>(double value)
+{
+    for (int i=0; i<x; i++)
+    {
+        for (int j=0; j<y; j++)
+        {
+            if(mac[i][j] < value)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }

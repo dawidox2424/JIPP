@@ -22,6 +22,18 @@ exception
 excpt.h
 -
 
+D:/JIPP PROJEKTY/lab5/src/matrix.cpp
+iostream
+-
+conio.h
+-
+windows.h
+-
+matrix.hpp
+D:/JIPP PROJEKTY/lab5/src/matrix.hpp
+fstream
+-
+
 D:/JIPP PROJEKTY/lab5/src/matrix.hpp
 iostream
 -
