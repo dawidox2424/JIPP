@@ -10,13 +10,15 @@
 #include <string.h>
 #include <stack>
 
+double PI = 3.1415;
+
 using namespace std;
 
 int priorytet(char znak) {
   switch (znak)
   {
-    case '-': ;
-    case '+': 
+    case '+': ;
+    case '-': 
         return 1;
     case '*': ;
     case '/': 
@@ -52,7 +54,7 @@ int numberCheck(int x)
     return 0;
 }
 
-string wyrazenie = "(22.5-17+12)-(221*17)=";
+string wyrazenie = "sin(90)=";
 int dlugosc = wyrazenie.length();
 
 string temp;
@@ -98,7 +100,7 @@ int main()
             else if (ujemna != 1 && kropka != 1)
             {
             tablica[counter] = wyrazenie[i];
-            cout << "Z:[" << wyrazenie[i] << "] ";
+            //cout << "Z:[" << wyrazenie[i] << "] ";
             counter++;
             }
 
@@ -120,7 +122,7 @@ int main()
             
             if(kropka != 1 && ujemna != 1)
                 {
-                cout << "NL:[" << liczba_cala << "] ";
+                //cout << "NL:[" << liczba_cala << "] ";
                 tablica[counter] = to_string(liczba_cala); //
                 counter++;
                 }
@@ -131,7 +133,7 @@ int main()
                 ujemna = 0;
 
                 liczba_cala = -(liczba_cala);
-                cout << "NL:[" << liczba_cala << "]";
+                //cout << "NL:[" << liczba_cala << "]";
                 tablica[counter] = to_string(liczba_cala);
                 counter++;
                 }
@@ -143,7 +145,7 @@ int main()
                 
                 tablica[counter].push_back('.'); 
                 tablica[counter] += to_string(liczba_cala);
-                cout <<"kropkowane:" << tablica[counter];
+                //cout <<"kropkowane:" << tablica[counter];
                 counter++;
                 }
 
@@ -161,11 +163,12 @@ int main()
 
     }
 
-    cout << "ostatecznie:";
+    cout << "ostatecznie:" << endl;
     for (int i = 0; i< 20; i++)
     {
-        cout << tablica[i];
+        cout << "i[" <<i<<"]" << tablica[i] << "||";
     }
+    cout << endl;
 
     string znak_ONP; // pojedynczy znak
     string stos[100]; // stos
@@ -183,10 +186,12 @@ int main()
         {
             while (stos_licznik > 0)
             {
-                ONP_ready[ONP_licznik] = stos[--stos_licznik];
+                ONP_ready[ONP_licznik++] = stos[--stos_licznik];
+                cout << "przeczucam ze stosu na wyjscie po znaku rowna sie" << endl;
             }
+            ONP_ready[ONP_licznik++] = '=';
             break;
-            //goto wynik
+            
         }
 
         if(znak_ONP.size() == 1) //wtedy mamy do czynienia ze znakiem
@@ -195,11 +200,15 @@ int main()
             {
             case '(': 
                     stos[stos_licznik] = '(';
+                    cout << "wrzucam na stos (" << endl;
                     break;
                 
-                case ')': 
-                    while(stos[stos_licznik - 1][0] != '(') {
+                case ')':
+                    cout << "bede przerzucal wszystko ze stosu na wyjscie, do momentu napotkania )" << endl;
+                    while(stos[stos_licznik - 1][0] != '(') ///tutaj sie zapetla
+                    {
                         ONP_ready[ONP_licznik++] = stos[--stos_licznik];
+                        cout << "przeczucilem ze stosu na wyjscie!" << endl;
                     }
                     stos_licznik--;
                     break;    
@@ -219,20 +228,92 @@ int main()
                         if (stos_licznik != 0 && priorytet(stos[stos_licznik - 1][0]) >= priorytet(znak_ONP[0]))
                         {
                             ONP_ready[ONP_licznik++] = stos[--stos_licznik];
+                            cout << "sciagam ze stosu na wyjscie znak:" << znak_ONP[0] << endl;
                         } else 
                         {
                             break;
                         }        
                     }
                     stos[stos_licznik++] = znak_ONP;
+                    cout << "wrzucam znak [" << znak_ONP << "] na stos" << endl;
                     break;
                 default:
                     ONP_ready[ONP_licznik++] = znak_ONP;
+                    cout << "[default] Wrzucam znak[" << znak_ONP << "] na wyjscie" << endl;
                     break;
             }
 
-        } else ONP_ready[ONP_licznik++] = znak_ONP;
+        } else
+        {
+            ONP_ready[ONP_licznik++] = znak_ONP;
+            cout << "wrzucam liczbe[" << znak_ONP << "] na wyjscie" << endl;
+        } 
     }
+
+
+    cout << "DEBUG: ONP ready" << endl;
+    for(int q=0;q<20;q++)
+    {
+        cout << ONP_ready[q] << " ";
+    }
+
+    
+
+    int licznik_ONP = 0;
+    int licznik_wynik = 0;
+    double liczba1,liczba2;
+    string znak_result;
+    double tablica_wynik[100];
+
+    for (int r=0;r<sizeof(ONP_ready); r++)
+    {
+        znak_result = ONP_ready[licznik_ONP++];
+
+        if (znak_result == "=")
+        {
+            cout << "Wynik: " << tablica_wynik[--licznik_wynik] << endl;
+            return 0;
+        } else if(numberCheck(znak_result[0]) || (znak_result[0] == '-' && znak_result.size() > 1))
+        {
+            tablica_wynik[licznik_wynik++] = stod(znak_result);
+        } else
+        {
+            
+            if((znak_result[0] > 41 && znak_result[0] < 48) || znak_result[0] == 94)
+            {
+                liczba2 = tablica_wynik[--licznik_wynik];
+                liczba1 = tablica_wynik[--licznik_wynik];
+
+
+                switch(znak_result[0]) 
+                {
+                    
+                    case '+': liczba1 += liczba2; break;
+                    case '-': liczba1 -= liczba2; break;    
+                    case '*': liczba1 *= liczba2; break;
+                    case '/': liczba1 /= liczba2; break;
+                    case '^': liczba1 = pow(liczba1, liczba2); break;
+                    default: break;
+                }
+            } else
+            {
+                liczba1 = tablica_wynik[--licznik_wynik];
+                    switch(znak_result[0]) 
+                    {
+
+                    case 'i': liczba1 = sin(liczba1*(PI/180)); break;
+                    case 'o': liczba1 = cos(liczba1*(PI/180)); break;
+                    case 'g': liczba1 = tan(liczba1*(PI/180)); break;
+                    case 't': liczba1 = 1/tan(liczba1*(PI/180)); break;
+                    case 'q': liczba1 = sqrt(liczba1); break;
+                    default: break;
+                    }
+            }
+            tablica_wynik[licznik_wynik++] = liczba1;
+            cout << "liczba1:" << liczba1 << endl;
+        }
+
+    } 
 
   return 0;  
 }
